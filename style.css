@@ -43,12 +43,12 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #2828
 /* --- Seamless Slice Logic --- */
 .story-content { width: 100%; }
 .img-slice-container { display: flex; flex-direction: column; }
-.seamless-img { 
-    width: 100%; 
-    height: auto; 
-    display: block; /* Essential: removes the 3px gap below images */
-    margin: 0; 
-    padding: 0; 
+.seamless-img { 
+    width: 100%; 
+    height: auto; 
+    display: block; /* Essential: removes the 3px gap below images */
+    margin: 0; 
+    padding: 0; 
 }
 
 /* Rewards Sidebar */
@@ -62,7 +62,8 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #2828
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .hero-grid, .main-content-layout { grid-template-columns: 1fr; }
-    .project-header h1 { font-size: 24px; }
-    .rewards-column { order: 2; }
-    .story-content { order: 1; }
+    .hero-grid, .main-content-layout { grid-template-columns: 1fr; }
+    .project-header h1 { font-size: 24px; }
+    .rewards-column { order: 2; }
+    .story-content { order: 1; }
+}
