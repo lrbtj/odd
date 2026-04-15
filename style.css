@@ -37,21 +37,69 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #2828
 .sticky-tabs li { margin-right: 30px; font-weight: bold; color: #656969; cursor: pointer; }
 .sticky-tabs li.active { color: var(--ks-text); border-bottom: 3px solid var(--ks-text); }
 
-/* Main Content Layout */
-.main-content-layout { display: grid; grid-template-columns: 2.3fr 1fr; gap: 60px; margin-top: 40px; }
+/* --- Main Content Layout (Modified for 3 Columns) --- */
+.main-content-layout { 
+    display: grid; 
+    /* 定义三栏：左侧固定宽度 160px | 中间自适应 | 右侧固定宽度 300px */
+    grid-template-columns: 160px 1.8fr 1fr; 
+    gap: 40px; 
+    margin-top: 40px; 
+    align-items: start;
+}
 
-/* --- Seamless Slice Logic --- */
+/* --- Guide Column Styles --- */
+.guide-column {
+    display: block;
+}
+
+.sticky-guide {
+    position: sticky;
+    top: 80px; /* 这里的数值要略大于 sticky-tabs 的高度 */
+}
+
+.guide-column h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--ks-text);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.guide-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.guide-column li {
+    margin-bottom: 12px;
+}
+
+.guide-column a {
+    text-decoration: none;
+    color: #656969;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.guide-column a:hover {
+    color: var(--ks-green);
+}
+
+/* --- Story Content & Seamless Slice Logic --- */
 .story-content { width: 100%; }
 .img-slice-container { display: flex; flex-direction: column; }
 .seamless-img { 
     width: 100%; 
     height: auto; 
-    display: block; /* Essential: removes the 3px gap below images */
+    display: block; 
     margin: 0; 
     padding: 0; 
 }
 
 /* Rewards Sidebar */
+.rewards-column {
+    min-width: 300px;
+}
 .reward-card { border: 1px solid var(--border); padding: 25px; margin-bottom: 20px; transition: 0.3s; }
 .reward-card:hover { border-color: var(--ks-green); }
 .reward-card.highlight { background: #fbfbfc; border: 2px solid var(--ks-green); }
@@ -60,10 +108,17 @@ body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #2828
 .select-btn { width: 100%; padding: 12px; background: white; border: 1px solid var(--border); cursor: pointer; margin-top: 15px; font-weight: bold; }
 .select-btn:hover { background: var(--ks-green); color: white; border-color: var(--ks-green); }
 
-/* Mobile Responsive */
+/* --- Mobile Responsive (Updated) --- */
+@media (max-width: 1024px) {
+    /* 中型屏幕：隐藏 Guide 以保证中间和右侧体验 */
+    .main-content-layout { grid-template-columns: 2.3fr 1fr; }
+    .guide-column { display: none; }
+}
+
 @media (max-width: 768px) {
     .hero-grid, .main-content-layout { grid-template-columns: 1fr; }
     .project-header h1 { font-size: 24px; }
     .rewards-column { order: 2; }
     .story-content { order: 1; }
+    .guide-column { display: none; }
 }
