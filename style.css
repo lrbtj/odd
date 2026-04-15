@@ -1,0 +1,69 @@
+/* Base Resets */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #282828; line-height: 1.5; background: #fff; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* Kickstarter Green */
+:root { --ks-green: #05ce78; --ks-text: #282828; --border: #ececec; }
+
+/* Navigation */
+.ks-nav { border-bottom: 1px solid var(--border); padding: 15px 0; font-size: 14px; }
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-weight: 900; letter-spacing: 2px; color: var(--ks-green); }
+
+/* Header */
+.project-header { padding: 40px 0; text-align: center; }
+.project-header h1 { font-size: 34px; margin-bottom: 10px; }
+.subtitle { font-size: 18px; color: #656969; margin-bottom: 30px; }
+
+.hero-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; text-align: left; }
+
+.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
+.video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.stats-sidebar .progress-bar { background: #efefef; height: 5px; margin-bottom: 20px; }
+.stats-sidebar .fill { background: var(--ks-green); width: 85%; height: 100%; }
+.stat-group { margin-bottom: 25px; }
+.stat-value { display: block; font-size: 28px; font-weight: bold; color: var(--ks-green); }
+.stat-label { font-size: 14px; color: #656969; }
+
+.primary-btn { width: 100%; padding: 18px; background: var(--ks-green); color: white; border: none; font-size: 18px; font-weight: bold; cursor: pointer; }
+.primary-btn:hover { background: #04b368; }
+
+/* Sticky Tabs */
+.sticky-tabs { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); position: sticky; top: 0; background: white; z-index: 100; }
+.sticky-tabs ul { display: flex; list-style: none; padding: 15px 0; }
+.sticky-tabs li { margin-right: 30px; font-weight: bold; color: #656969; cursor: pointer; }
+.sticky-tabs li.active { color: var(--ks-text); border-bottom: 3px solid var(--ks-text); }
+
+/* Main Content Layout */
+.main-content-layout { display: grid; grid-template-columns: 2.3fr 1fr; gap: 60px; margin-top: 40px; }
+
+/* --- Seamless Slice Logic --- */
+.story-content { width: 100%; }
+.img-slice-container { display: flex; flex-direction: column; }
+.seamless-img { 
+    width: 100%; 
+    height: auto; 
+    display: block; /* Essential: removes the 3px gap below images */
+    margin: 0; 
+    padding: 0; 
+}
+
+/* Rewards Sidebar */
+.reward-card { border: 1px solid var(--border); padding: 25px; margin-bottom: 20px; transition: 0.3s; }
+.reward-card:hover { border-color: var(--ks-green); }
+.reward-card.highlight { background: #fbfbfc; border: 2px solid var(--ks-green); }
+.ks-badge { background: var(--ks-green); color: white; padding: 4px 8px; font-size: 10px; text-transform: uppercase; }
+.pledge-label { font-size: 18px; font-weight: bold; margin: 10px 0; }
+.select-btn { width: 100%; padding: 12px; background: white; border: 1px solid var(--border); cursor: pointer; margin-top: 15px; font-weight: bold; }
+.select-btn:hover { background: var(--ks-green); color: white; border-color: var(--ks-green); }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-grid, .main-content-layout { grid-template-columns: 1fr; }
+    .project-header h1 { font-size: 24px; }
+    .rewards-column { order: 2; }
+    .story-content { order: 1; }
+}
